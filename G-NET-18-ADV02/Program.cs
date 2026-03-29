@@ -21,6 +21,13 @@ namespace G_NET_18_ADV02
             //List<Product> res = SearchProducts(products, p => p.Category == "Elctronics"); 
             #endregion
 
+
+            #region Task02
+            //PrintReport(products , p => Console.WriteLine($"{p.Name} - ${p.Price}"));
+            //Console.WriteLine();
+            //PrintReport(products, p => Console.WriteLine($"[{p.Category}] {p.Name} | Price: ${p.Price} | Stock: {p.Stock}"));
+            #endregion
+
         }
 
         static List<Product> SearchProducts(List<Product> products , Func<Product, bool> ProductExists)
@@ -37,6 +44,16 @@ namespace G_NET_18_ADV02
 
             return res;
         }
+
+
+        static void PrintReport(List<Product> products , Action<Product> PrintProduct)
+        {
+            foreach (var item in products)
+            {
+                PrintProduct(item);
+            }
+        }
+
 
     }
 }
