@@ -28,6 +28,16 @@ namespace G_NET_18_ADV02
             //PrintReport(products, p => Console.WriteLine($"[{p.Category}] {p.Name} | Price: ${p.Price} | Stock: {p.Stock}"));
             #endregion
 
+
+            #region Task03
+            //List<Product> res = FilterProducts(products, p => p.Stock < 20);
+            //Console.WriteLine("--- Low-Stock Alert ---");
+            //foreach (var item in res)
+            //{
+            //    Console.WriteLine($"[LOW STOCK] {item.Name}: only {item.Stock} left!");
+            //}
+            #endregion
+
         }
 
         static List<Product> SearchProducts(List<Product> products , Func<Product, bool> ProductExists)
@@ -54,6 +64,21 @@ namespace G_NET_18_ADV02
             }
         }
 
+
+        static List<Product> FilterProducts(List<Product> products , Predicate<Product> matchCondition)
+        {
+            List<Product> res = [];
+
+            foreach (var item in products)
+            {
+                if (matchCondition(item))
+                {
+                    res.Add(item);
+                }
+            }
+
+            return res;
+        }
 
     }
 }
